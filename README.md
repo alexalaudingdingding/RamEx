@@ -97,7 +97,7 @@ All data can be preprocessed by combining the provided functions as desired.
 
 ***Visual variance analysis(PCA,t-SNE and PLS-DA)***
 
-Low-dimensional spatial visualization provides us with an intuitive understanding of ramanome.
+Low-dimensional spatial visualization provides us with an intuitive understanding of ramanome. To run this module you can use the command "RamEx-QC" as below:
 
 ```
 RamEx-QC ...
@@ -110,16 +110,16 @@ RamEx-QC ...
 To produce the IRCN from a ramanome data point, spectral range, spectral resolution, and spectral normalization are first derived or performed via the data preprocessing module. Then the Pearson correlation coefficients (PCC; ρ) of all possible pairwise combinations of Raman peak are calculated from a ramanome. Key network parameters are calculated by the “igraph” package in R to probe the global features of an IRCN. All Raman peaks are used for deriving the global IRCN, while only characteristic marker Raman peaks are used for the simplified versions of IRCN (Local IRCN) to facilitate visualization. 
 
 
-Furthermore, RamEx derives three graphic signatures that depict and characterize the links among key SCRS features: metabolite profile (MP), metabolite interaction (MI) and metabolite conversion (MC). MP depicts the mean SCRS of a ramanome. MI, also a network derived via inherent variations of SCRS in a ramanome, is constructed based on the matrix of all pairwise Raman peaks with significant correlations (P < 0.05). In contrast, MC is a network consisting of only those pairwise Raman peaks with strongly negative correlation (ρ ≤–0.6, P < 0.05). To compare the networks, hierarchical cluster analysis (HCA) was performed with Ward’s algorithm. 
+Furthermore, RamEx derives three graphic signatures that depict and characterize the links among key SCRS features: metabolite profile (MP), metabolite interaction (MI) and metabolite conversion (MC). MP depicts the mean SCRS of a ramanome. MI, also a network derived via inherent variations of SCRS in a ramanome, is constructed based on the matrix of all pairwise Raman peaks with significant correlations (P < 0.05). In contrast, MC is a network consisting of only those pairwise Raman peaks with strongly negative correlation (ρ ≤–0.6, P < 0.05). To compare the networks, hierarchical cluster analysis (HCA) was performed with Ward’s algorithm. To run this module you can use the command "RamEx-IRCA-**" as below:
 
 ```
-RamEx-IRCA-...
+RamEx-IRCA-** ...
 ```
 
 
 **III.  Raman Barcode of Cellular-response to Stress(RBCS)**
 
-We have proposed RBCS, which represents the time- or condition-specific response of ramanome to stimuli. RBCS contains a series of Raman peaks that are more responsive to stimuli. The dynamic changes of these Raman signals constitute a specific identification code that can be used to quickly distinguish and identify specific cellular responses of each stimulus. Based on stoichiometric methods, the RBCS obtained from the analysis and comparison of Raman profiles under all stimuli cannot only distinguish the cellular responses of different stimuli, but also provide information on their cytotoxicity (i.e., cell mortality). 
+We have proposed RBCS, which represents the time- or condition-specific response of ramanome to stimuli. RBCS contains a series of Raman peaks that are more responsive to stimuli. The dynamic changes of these Raman signals constitute a specific identification code that can be used to quickly distinguish and identify specific cellular responses of each stimulus. Based on stoichiometric methods, the RBCS obtained from the analysis and comparison of Raman profiles under all stimuli cannot only distinguish the cellular responses of different stimuli, but also provide information on their cytotoxicity (i.e., cell mortality). To run this module you can use the command "RamEx-RBCS" as below: 
 
 ```
 RamEx-RBCS ...
@@ -149,14 +149,6 @@ This demo run should take less than 2 minutes on a recommended computer.
 
 
 
-# Supplementary
-We also provide more datasets for test run, which is used in the manuscript “RamEx improves accuracy of 16S-amplicon-based prediction of microbiome function”. Gene profiles of WGS samples were directly analyzed by HuMANn 2. and gene profiles of amplicons were inferred by PICRUSt 2. 
-
-[Dataset 1](http://bioinfo.single-cell.cn/Released_Software/RamEx/dataset1.tar.gz) (~109 MB) contains 622 paired samples of WGS and V3-V5 region 16S rRNA amplicon samples (also integrated in the source code package as example dataset for demo run).  
-[Dataset 2](http://bioinfo.single-cell.cn/Released_Software/RamEx/dataset2.tar.gz) (~47 MB) contains 295 paired samples of WGS and V1-V3 region 16S rRNA amplicon samples.   
-[Dataset 3](http://bioinfo.single-cell.cn/Released_Software/RamEx/dataset3.tar.gz) (~827 MB) contains unpaired 2,354 WGS samples and 5,350 V3-V5 16S rRNA amplicon samples.  
-[Dataset 4](http://bioinfo.single-cell.cn/Released_Software/RamEx/dataset4.tar.gz) (~325 MB) contains unpaired 2,045 WGS samples and 2,186 V1-V3 16S rRNA amplicon samples.  
-[Dataset 5](http://bioinfo.single-cell.cn/Released_Software/RamEx/dataset5.tar.gz) (~25 MB) contains partially paired 18 WGS samples and 150 V1-V3 16S rRNA amplicon samples.
 
 # Reference
 1. Abubucker, S., et al., Metabolic Reconstruction for Metagenomic Data and Its Application to the Human Microbiome. _PLoS Computational Biology_, 2012, 8(6): e1002358.
