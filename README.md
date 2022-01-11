@@ -83,7 +83,7 @@ In the QC step, RamEx provides several functions: initialization, read data,  sm
 
 Currently the RamEx requires files as txt object. All spectrum data stored in few subfolders of the working path by group. 
 
-**Initialization**
+***Initialization***
 
 The initialization function makesure the working directory and creat the ouput directry.
 
