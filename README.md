@@ -12,7 +12,7 @@
 - [Installation guide](#installation-guide)
 - [Usage](#usage)
 - [Example dataset](#example-dataset)
-- [Supplementary](#supplementary)
+
 
 # Introduction
 
@@ -87,17 +87,22 @@ Currently the RamEx requires files as txt object. All spectrum data stored in fe
 
 The initialization function makesure the working directory and creat the ouput directry.
 
-**Read data**
+***Read data***
 
 For CAST-R and Horiba spectrum data, RamEx reads data from the subfolders of the working path by group. And for Renishaw mapping data, RamEx can read mapping data from the working directory and creat some subfolders by group. Then, RamEx can read them like CAST-R and Horiba spectrum data.
 
-**Preprocessing(smooth; quanlity control; baseline; normalization)**
+***Preprocessing(smooth; quanlity control; baseline; normalization)***
 
 All data can be preprocessed by combining the provided functions as desired.
 
-**Visual variance analysis(PCA,t-SNE and PLS-DA)**
+***Visual variance analysis(PCA,t-SNE and PLS-DA)***
 
 Low-dimensional spatial visualization provides us with an intuitive understanding of ramanome.
+
+```
+RamEx-QC ...
+```
+
 
 
 **II.  Intra-Ramanome Correlation Analysis (IRCA)**
@@ -107,13 +112,18 @@ To produce the IRCN from a ramanome data point, spectral range, spectral resolut
 
 Furthermore, RamEx derives three graphic signatures that depict and characterize the links among key SCRS features: metabolite profile (MP), metabolite interaction (MI) and metabolite conversion (MC). MP depicts the mean SCRS of a ramanome. MI, also a network derived via inherent variations of SCRS in a ramanome, is constructed based on the matrix of all pairwise Raman peaks with significant correlations (P < 0.05). In contrast, MC is a network consisting of only those pairwise Raman peaks with strongly negative correlation (ρ ≤–0.6, P < 0.05). To compare the networks, hierarchical cluster analysis (HCA) was performed with Ward’s algorithm. 
 
-
+```
+RamEx-IRCA-...
+```
 
 
 **III.  Raman Barcode of Cellular-response to Stress(RBCS)**
 
 We have proposed RBCS, which represents the time- or condition-specific response of ramanome to stimuli. RBCS contains a series of Raman peaks that are more responsive to stimuli. The dynamic changes of these Raman signals constitute a specific identification code that can be used to quickly distinguish and identify specific cellular responses of each stimulus. Based on stoichiometric methods, the RBCS obtained from the analysis and comparison of Raman profiles under all stimuli cannot only distinguish the cellular responses of different stimuli, but also provide information on their cytotoxicity (i.e., cell mortality). 
 
+```
+RamEx-RBCS ...
+```
 
 # Example dataset
 
