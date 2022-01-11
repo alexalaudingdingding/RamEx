@@ -133,6 +133,6 @@ Two investigated species of S. mutans (Sm) and S. sanguinis (Ss) were performed 
 
 
 # Reference
-1. Abubucker, S., et al., Metabolic Reconstruction for Metagenomic Data and Its Application to the Human Microbiome. _PLoS Computational Biology_, 2012, 8(6): e1002358.
-2. Douglas, G.M., et al., PICRUSt2 for prediction of metagenome functions. _Nat Biotechnol_, 2020, 38(6): 685-688.
+1. Lee, K. S. et al.,  Raman microspectroscopy for microbiology. _Nature Reviews Methods Primers_, 2021.
+2. Xu, J. et al., Emerging Trends for Microbiome Analysis: From Single-Cell Functional Imaging to Microbiome Big Data. _Engineering_, 2017.
 
