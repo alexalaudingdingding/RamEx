@@ -127,26 +127,8 @@ RamEx-RBCS ...
 
 # Example dataset
 
-Here we provide a demo dataset in "examples" folder. This dataset contains 15 WGS-amplicon training pairs, and 622 amplicon samples for calibration. All samples were produced by Human Microbiome Project stage I. Gene profiles of WGS samples were directly analyzed by HuMANn 2. Amplicon samples were sequenced by V3-V5 region 16S rRNA sequencing, and gene profiles were inferred by PICRUSt 2.   
 
-In this dataset, " training.wgs.ko.abd" is the gene relative abundance table of 15 training WGS samples, and "training.16s.ko.abd" is that of 15 matched training amplicon samples. The gene profiles of samples for calibration is in “16s.ko.abd”, and their meta-data is in “meta.txt”.  
-
-
-To run the demo, you can either run the script “Readme”:  
-
-```
-cd example
-sh Readme
-```
-or type the following command:
-```
-RamEx-train -T training.wgs.ko.abd -t training.16s.ko.abd -o RamEx.model
-RamEx-calibrate -t 16s.ko.abd -m RamEx.model -o 16s.ko.calibrated.abd
-```
-Then the output file "16s.ko.calibrated.abd " is the calibrated relative abundance of the amplicon microbiomes.  
-
-This demo run should take less than 2 minutes on a recommended computer.  
-
+Two investigated species of S. mutans (Sm) and S. sanguinis (Ss) were performed a complete transition of three typical phases in bacterial growth: lag (0–2 h), log (4–8 h), stationary (12–24 h), which was deemed worthwhile to be investigated via Raman microspectroscopy. We ensured that the majority of individual spectra were taken over single cells and preparation conditions were consistent between samples.
 
 
 
