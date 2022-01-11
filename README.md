@@ -74,70 +74,30 @@ cd RamEx
 make
 ```
 # Usage
-The RamEx consists of two steps: **a. training** and **b. calibration**. Currently the RamEx requires all functional gene profiles to be annotated using KEGG Ontology. 
+The RamEx consists of three modules: QC（pretreatment）IRCA and RBCS. Currently the RamEx requires all CAST-R, Horiba and Renishaw files as txt object.
 
+**I. QC（pretreatment）** 
 
-**I. Training for KO abundance calibration** 
+Ramanome analysis starts with data management and preprocessing of SCRS
+In the QC step, RamEx provides several functions: initialization, read data,  smooth, quanlity control, baseline, normalization and visual variance analysis, including PCA,t-SNE and PLS-DA. 
 
-In the training step, RamEx builds a model by a small number (e.g 15) of paired amplicon-WGS samples using machine learning. Each sample should be sequenced by both shotgun WGS and amplicon (e.g. 16S rRNA), then we parse their functional profiles. We recommend HuMANn 2 [1] for WGS functional profiling, and PICRUSt 2 [2] for amplicon functional prediction.  
+Currently the RamEx requires files as txt object. All spectrum data stored in few subfolders of the working path by group. 
 
-For training, the RamEx accepts gene profiles of training paired samples in two formats:
+**Initialization**
 
-**a. Abundance tables**
+The initialization function makesure the working directory and creat the ouput directry.
 
-```
-RamEx-train -T training.wgs.ko.abd -t training.16s.ko.abd -o RamEx.model
-```
-in which parameter “-T” assigns the gene relative abundance table of training WGS samples and “-t” assigns that of training amplicons. Orders of paired samples should be exactly consistent in the input WGS and amplicon tables.  
+**Read data**
 
+For CAST-R and Horiba spectrum data, RamEx reads data from the subfolders of the working path by group. And for Renishaw mapping data, RamEx can read mapping data from the working directory and creat some subfolders by group. Then, RamEx can read them like CAST-R and Horiba spectrum data.
 
-The format of a gene profile table of training WGS samples:  
-```
-Sample	K00001	K00002	K00003	K00004	K00005	K00010	K00006	K00011	K00007
-Sample1	0.1	0	0.3	0.1	0.1	0.1	0.1	0	0.2
-Sample2	0.3	0.1	0.1	0	0.1	0.2	0	0.1	0.1
-Sample3	0	0.2	0.1	0.3	0	0	0.4	0	0
+**Preprocessing(smooth; quanlity control; baseline; normalization)**
 
-...
-SampleN	0	0.1	0.2	0.4	0	0	0.3	0	0
-```
+All data can be preprocessed by combining the provided functions as desired.
 
+**Visual variance analysis(PCA,t-SNE and PLS-DA)**
 
-The training amplicon table is in the same format, and order of each sample is exactly consistent with the training WGS table.  
-
-**b. Sample lists** 
-
-```
-RamEx-train -L training.wgs.list -l training.16s.list -o RamEx.model
-```
-
-in which parameter “-L” assigns the file list of training WGS samples and “-t” assigns that of training amplicons. Orders of paired samples should be exactly consistent in the input WGS and amplicon lists. In the input list, each line contains the path of one single sample’s gene profile. 
-
-
-The format of a gene profile list of training WGS samples: 
-```
-Sample1	/home/data/sample1.ko.out
-Sample2	/home/data/sample2.ko.out
-Sample3	/home/data/sample3.ko.out
-...
-SampleN	/home/data/sampleN.ko.out
-```
-And the format of each single sample's gene profile in the list (e.g. for sample1.ko.out):
-```
-#KO Count
-K00001	0.1
-K00003	0.3
-K00004	0.1
-K00005	0.1
-K00010	0.1
-K00006	0.1
-K00007	0.2
-```
-
-The training amplicon list is in the same format, and order of each sample is exactly matched with the training WGS list.  
-
-
-Then the output file “RamEx.model” is the generated training model for calibration in the next step.  
+Low-dimensional spatial visualization provides us with an intuitive understanding of ramanome. 
 
 
 **II. Calibration for KO abundance**
