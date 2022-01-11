@@ -97,27 +97,23 @@ All data can be preprocessed by combining the provided functions as desired.
 
 **Visual variance analysis(PCA,t-SNE and PLS-DA)**
 
-Low-dimensional spatial visualization provides us with an intuitive understanding of ramanome. 
+Low-dimensional spatial visualization provides us with an intuitive understanding of ramanome.
 
 
-**II. Calibration for KO abundance**
+**II.  Intra-Ramanome Correlation Analysis (IRCA)**
 
-In the calibration step, RamEx calibrates the predicted functional profiles of more amplicon samples using the model built in the training step. The predicted gene profiles of amplicons for calibration should be processed in the same way as the training amplicon samples (e.g. by PICRUSt 2).  
+To produce the IRCN from a ramanome data point, spectral range, spectral resolution, and spectral normalization are first derived or performed via the data preprocessing module. Then the Pearson correlation coefficients (PCC; ρ) of all possible pairwise combinations of Raman peak are calculated from a ramanome. Key network parameters are calculated by the “igraph” package in R to probe the global features of an IRCN. All Raman peaks are used for deriving the global IRCN, while only characteristic marker Raman peaks are used for the simplified versions of IRCN (Local IRCN) to facilitate visualization. 
 
-For calibration, the RamEx also accepts gene profiles of amplicon samples in two formats as well as the training step.  
 
-**a. Abundance table**  
+Furthermore, RamEx derives three graphic signatures that depict and characterize the links among key SCRS features: metabolite profile (MP), metabolite interaction (MI) and metabolite conversion (MC). MP depicts the mean SCRS of a ramanome. MI, also a network derived via inherent variations of SCRS in a ramanome, is constructed based on the matrix of all pairwise Raman peaks with significant correlations (P < 0.05). In contrast, MC is a network consisting of only those pairwise Raman peaks with strongly negative correlation (ρ ≤–0.6, P < 0.05). To compare the networks, hierarchical cluster analysis (HCA) was performed with Ward’s algorithm. 
 
-```
-RamEx-calibrate -t 16s.ko.abd -m RamEx.model -o 16s.ko.calibrated.abd
-```
-The output file “16s.ko.calibrated.abd” is the calibrated gene abundance table. 
 
-**b. Sample list**  
-```
-RamEx-calibrate -l 16s.ko.list -m RamEx.model -o 16s.ko.calibrated.out
-```
-The output folder “16s.ko.calibrated.out” contains the calibrated gene profiles of each single input sample, and the file list of calibrated samples is also output to “16s.ko.calibrated.out.list”.  
+
+
+**III.  Raman Barcode of Cellular-response to Stress(RBCS)**
+
+We have proposed RBCS, which represents the time- or condition-specific response of ramanome to stimuli. RBCS contains a series of Raman peaks that are more responsive to stimuli. The dynamic changes of these Raman signals constitute a specific identification code that can be used to quickly distinguish and identify specific cellular responses of each stimulus. Based on stoichiometric methods, the RBCS obtained from the analysis and comparison of Raman profiles under all stimuli cannot only distinguish the cellular responses of different stimuli, but also provide information on their cytotoxicity (i.e., cell mortality). 
+
 
 # Example dataset
 
