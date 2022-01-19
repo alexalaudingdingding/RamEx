@@ -9,7 +9,7 @@
 ## Clean R environment
 rm(list=ls())
 setwd('./')
-sourcedir <- Sys.getenv("RamEX")
+sourcedir <- Sys.getenv("RamEx")
 source(sprintf('%s/Rscript/util_clean.R',sourcedir))
 
 
