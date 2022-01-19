@@ -8,8 +8,8 @@
 ## Clean R environment
 rm(list=ls())
 setwd('./')
-#sourcedir <- Sys.getenv("RamEX")
-source(sprintf('%s/Rscript/util_clean.R',"/home/gene/jinggc/RamEX"))
+sourcedir <- Sys.getenv("RamEx")
+source(sprintf('%s/Rscript/util_clean.R',sourcedir))
 
 
 args <- commandArgs(trailingOnly=TRUE)
