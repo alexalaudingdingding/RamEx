@@ -24,14 +24,14 @@ using namespace std;
 
 string Check_Env(){
     
-    if (getenv("RamEX") == NULL){
+    if (getenv("RamEx") == NULL){
                                
-                               cerr << "Error: Please set the environment variable \"RamEX\" to the directory" << endl;
+                               cerr << "Error: Please set the environment variable \"RamEx\" to the directory" << endl;
                                exit(0);
                                
                                    }
     
-    string path =  getenv("RamEX");
+    string path =  getenv("RamEx");
     return path;
     
     //debug
